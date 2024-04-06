@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./assests/Bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="./assests/Datatable/datatables.min.css">
+    <link rel="stylesheet" href="./index.css">
+</head>
+
+<body>
+    <div class="container">
+        <!-- Modal trigger button -->
+        <button type="button" class="btn btn-primary btn-lg" data-bs-toggle="modal" data-bs-target="#modalId">
+            Add Data
+        </button>
+
+        <!-- Modal Body -->
+        <!-- if you want to close by clicking outside the modal, delete the last endpoint:data-bs-backdrop and data-bs-keyboard -->
+        <div class="modal fade" id="modalId" tabindex="-1" data-bs-backdrop="static" data-bs-keyboard="false"
+            role="dialog" aria-labelledby="modalTitleId" aria-hidden="true">
+            <div class="modal-dialog modal-xl modal-dialog-scrollable modal-dialog-centered modal-sm" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="modalTitleId">
+                            Form
+                        </h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <form class="foodForm">
+                            <div class="row">
+                                <div class="col-lg-5">
+                                    <div class="mb-3">
+                                        <label for="" class="form-label">Name</label>
+                                        <input type="text" class="form-control" name="" id="name"
+                                            aria-describedby="helpId" placeholder="" pattern="[a-zA-Z\s]+" required />
+
+                                    </div>
+
+                                    <div class="form-check">
+                                        <label class="form-check-label" for=""> Active</label>
+                                        <input class="form-check-input" type="checkbox" value="yes" id="active"
+                                            checked />
+                                    </div>
+
+                                    <div class="mb-3">
+                                        <label for="" class="form-label">Date</label>
+                                        <input type="date" class="form-control" name="" id="date"
+                                            aria-describedby="helpId" placeholder="" required />
+
+                                    </div>
+                                </div>
+                                <div class="col-lg-7">
+                                    <div class="mb-3">
+                                        <label for="" class="form-label">Description</label>
+                                        <textarea class="form-control" name="" id="description" rows="3"
+                                            pattern="[a-zA-Z\s]+"></textarea>
+                                    </div>
+                                </div>
+                            </div>
+
+
+
+                            <div class="table-responsive">
+                                <table class="table table-primary" id="item">
+                                    <thead>
+                                        <tr>
+                                            <th scope="col">Name</th>
+                                            <th scope="col">Description</th>
+                                            <th scope="col">Food Type</th>
+                                            <th scope="col">Price</th>
+                                            <th scope="col">Discount</th>
+                                            <th scope="col">Gst</th>
+                                            <th scope="col">Active</th>
+                                            <th scope="col">
+                                                <div class="d-grid gap-2">
+                                                    <button type="button" name="" id="addRow" class="btn btn-primary">
+                                                        +
+                                                    </button>
+                                                </div>
+                                            </th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td scope="row">
+                                                <div class="mb-3">
+
+                                                    <input type="text" class="form-control iname"
+                                                        aria-describedby="helpId" placeholder="" pattern="[a-z A-Z]+"
+                                                        required />
+
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="mb-3">
+
+                                                    <textarea class="form-control idescription" name="" id="" rows="1"
+                                                        cols="10"></textarea>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="mb-3">
+
+                                                    <select class="form-select form-control itype" name="" id="">
+                                                        <option value="Veg" selected>Veg</option>
+                                                        <option value="Non-veg">Non-veg</option>
+                                                        <option value="Dairy Food">Dairy Food</option>
+                                                        <option value="Sea Food">Sea Food</option>
+                                                    </select>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="mb-3">
+
+                                                    <input type="number" class="form-control iprice" name="" id=""
+                                                        aria-describedby="helpId" placeholder="" min="1" required />
+
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="mb-3">
+
+                                                    <input type="number" class="form-control idiscount" name="" id=""
+                                                        aria-describedby="helpId" placeholder="" min="1" max="15"
+                                                        required />
+
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="mb-3">
+
+                                                    <input type="number" class="form-control igst" name="" id=""
+                                                        aria-describedby="helpId" placeholder="" min="0" required />
+
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="form-check">
+                                                    <input class="form-check-input iactive" type="checkbox" value="yes"
+                                                        id="" checked />
+                                                </div>
+
+                                            </td>
+                                            <td><button type="button" class="btn btn-dark removeRow">-</button></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="submit" class="btn btn-primary" id="submit">Save</button>
+                                <button type="submit" class="btn btn-primary" id="update"
+                                    style="display: none;">Update</button>
+                            </div>
+                        </form>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+
+        <table class="table table-primary" id="category">
+            <thead>
+                <tr>
+                    <th scope="col"></th>
+                    <th scope="col">Name</th>
+                    <th scope="col">Description</th>
+                    <th scope="col">Active</th>
+                    <th scope="col">Launch Date</th>
+                    <th scope="col">Action</th>
+                </tr>
+            </thead>
+            <tbody>
+            </tbody>
+        </table>
+    </div>
+
+
+
+
+    <script src="./assests/Bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="./assests/Jquery/jquery-3.7.1.js"></script>
+    <script src="./assests/Datatable/datatables.min.js"></script>
+    <script src="./index.js"></script>
+</body>
+
+</html>
