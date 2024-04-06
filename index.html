@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./assets/Bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="./assets/Datatables/datatables.min.css">
+</head>
+
+<body>
+
+    <div class="container">
+        <!-- Modal trigger button -->
+        <button type="button" class="btn btn-primary btn-lg" data-bs-toggle="modal" data-bs-target="#modalId">
+            Add Data
+        </button>
+
+        <!-- Modal Body -->
+        <!-- if you want to close by clicking outside the modal, delete the last endpoint:data-bs-backdrop and data-bs-keyboard -->
+        <div class="modal fade" id="modalId" tabindex="-1" data-bs-backdrop="static" data-bs-keyboard="false"
+            role="dialog" aria-labelledby="modalTitleId" aria-hidden="true">
+            <div class="modal-dialog modal-xl modal-dialog-scrollable modal-dialog-centered modal-sm" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="modalTitleId">
+                            Category
+                        </h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <form id="cat-form">
+                            <div class="row">
+                                <div class="col-lg-5">
+                                    <div class="mb-3">
+                                        <label for="" class="form-label">Name</label>
+                                        <input type="text" class="form-control" name="" id="name"
+                                            aria-describedby="helpId" placeholder="" pattern="[a-z A-Z]+" required />
+                                    </div>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" value="yes" id="active"
+                                            checked />
+                                        <label class="form-check-label" for="active"> Active </label>
+                                    </div>
+
+
+                                    <div class="mb-3">
+                                        <label for="" class="form-label">Launch Date</label>
+                                        <input type="date" class="form-control" name="" id="date"
+                                            aria-describedby="helpId" placeholder="" required />
+                                    </div>
+                                </div>
+                                <div class="col-lg-7">
+                                    <div class="mb-3">
+                                        <label for="" class="form-label">Description</label>
+                                        <textarea class="form-control" name="" id="description" rows="3"
+                                            cols="10"></textarea>
+                                    </div>
+
+                                </div>
+                            </div>
+
+                            <table class="table table-primary" id="item">
+                                <thead>
+                                    <tr>
+                                        <th scope="col">Name</th>
+                                        <th scope="col">Description</th>
+                                        <th scope="col">Type</th>
+                                        <th scope="col">Price</th>
+                                        <th scope="col">Discount</th>
+                                        <th scope="col">Gst</th>
+                                        <th scope="col">Active</th>
+                                        <th scope="col"><button class="btn btn-dark" id="addrow">+</button></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td><input type="text " class="form-control iname" required></td>
+                                        <td><textarea cols="30" rows="1" cols="10"
+                                                class="form-control idescription"></textarea></td>
+                                        <td><select class="form-control itype">
+                                                <option value="Veg" selected>Veg</option>
+                                                <option value="Non-Veg">Non-Veg</option>
+                                                <option value="Sea-Food">Sea-Food</option>
+                                                <option value="Dairy-Food">Dairy-Food</option>
+                                            </select></td>
+                                        <td>
+                                            <input type="number" class="form-control iprice" min="1" required>
+                                        </td>
+                                        <td><input type="number" class="form-control idiscount" min="1" max="15"
+                                                required></td>
+                                        <td><input type="number" class="form-control igst" min="0" required></td>
+                                        <td>
+                                            <div class="form-check">
+                                                <input class="form-check-input form-control iactive" type="checkbox"
+                                                    value="" id="" />
+                                                <label class="form-check-label" for="">Active </label>
+                                            </div>
+                                        </td>
+                                        <td><button type="button" class="btn btn-dark removerow">-</button></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+
+
+
+                            <button type="submit" class="btn btn-primary" id="submit">Save</button>
+                            <button type="submit" class="btn btn-primary" id="update"
+                                style="display: none;">Update</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <table class="table table-primary" id="category">
+            <thead>
+                <tr>
+                    <th scope="col"></th>
+                    <th scope="col">Name</th>
+                    <th scope="col">Description</th>
+                    <th scope="col">Active</th>
+                    <th scope="col">New</th>
+                    <th scope="col">Action</th>
+                </tr>
+            </thead>
+            <tbody>
+            </tbody>
+        </table>
+    </div>
+
+
+    <script src="./assets/Bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="./assets/JQuery/jquery-3.7.1.js"></script>
+    <script src="./assets/Datatables/datatables.min.js"></script>
+    <script src="./index.js"></script>
+</body>
+
+</html>
